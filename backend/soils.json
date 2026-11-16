@@ -1,0 +1,13 @@
+{
+  "_units": {
+    "awc_mm_per_m": "mm of plant-available water held per metre of soil depth"
+  },
+  "_reference": "British Columbia Ministry of Agriculture, Food and Fisheries (2002). Soil Water Storage Capacity and Available Soil Moisture. Water Conservation Factsheet, Order No. 619.000-1, Table 2.",
+  "soils": {
+    "sand":       {"awc_mm_per_m": 83,  "source": "BC Factsheet 619.000-1, Table 2, Sand"},
+    "sandy loam": {"awc_mm_per_m": 125, "source": "BC Factsheet 619.000-1, Table 2, Sandy loam"},
+    "loam":       {"awc_mm_per_m": 175, "source": "BC Factsheet 619.000-1, Table 2, Loam"},
+    "clay loam":  {"awc_mm_per_m": 200, "source": "BC Factsheet 619.000-1, Table 2, Clay loam"},
+    "clay":       {"awc_mm_per_m": 200, "source": "BC Factsheet 619.000-1, Table 2, Clay"}
+  }
+}

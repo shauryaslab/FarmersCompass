@@ -1,0 +1,25 @@
+{
+  "source": "NASA NEX-GDDP-CMIP6, growing season (May-Sep), 0.25 degree grid cell",
+  "cell": [
+    45.0,
+    -64.5
+  ],
+  "baseline": "1995-2014 (historical)",
+  "future": "2041-2060 (SSP2-4.5)",
+  "models": {
+    "ACCESS-CM2": {
+      "dT": 2.69,
+      "rain_ratio": 1.101
+    },
+    "CanESM5": {
+      "dT": 2.6,
+      "rain_ratio": 1.022
+    },
+    "MPI-ESM1-2-HR": {
+      "dT": 1.04,
+      "rain_ratio": 1.077
+    }
+  },
+  "dT": 2.11,
+  "rain_ratio": 1.067
+}

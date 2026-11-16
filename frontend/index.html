@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1c2d4a">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Compare crop rotations for your field over 20 years of likely weather, built on NASA Earth observation data.">
+<title>Farmers Compass</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  :root {
+    --bg: #f7f5f0;
+    --card: #ffffff;
+    --navy: #1c2d4a;
+    --navy-2: #2a4170;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --line: #e7e4dc;
+    --accent: #2f7d4f;
+    --accent-soft: #e7f3eb;
+    --rain: #4a86b8;
+    --green: #4aa874;
+    --warn-bg: #fdf1ef;
+    --warn: #a3402f;
+    --radius: 16px;
+    --shadow: 0 1px 2px rgba(28,45,74,.04), 0 8px 24px rgba(28,45,74,.07);
+    --head: "Montserrat", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  img { max-width: 100%; }
+  a:focus-visible, button:focus-visible, summary:focus-visible, input[type=range]:focus-visible {
+    outline: 3px solid #7aa7e0; outline-offset: 2px; border-radius: 6px; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 15px/1.6 "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--head); color: var(--navy); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 max(1.25rem, env(safe-area-inset-right)) 0 max(1.25rem, env(safe-area-inset-left)); }
+
+  /* Top bar */
+  nav.top {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(247,245,240,.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: var(--navy);
+           font-family: var(--head); font-weight: 700; font-size: 1.05rem; letter-spacing: .02em; }
+  .brand img { width: 34px; height: 34px; }
+  .brand span { font-weight: 500; }
+  nav.top .links { display: flex; gap: 1.5rem; }
+  nav.top .links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; }
+  nav.top .links a:hover { color: var(--navy); }
+  @media (max-width: 640px) {
+    nav.top .wrap { height: 56px; }
+    .brand { font-size: .9rem; } .brand img { width: 28px; height: 28px; }
+    nav.top .links { gap: .9rem; }
+    nav.top .links a[href='#plan'], nav.top .links a[href='#context'] { display: none; }
+    nav.top .links a { padding: .5rem 0; font-size: .85rem; }
+  }
+  @media (max-width: 340px) { .brand span { display: none; } }
+
+  /* Hero */
+  .hero {
+    position: relative; overflow: hidden; color: #fff;
+    background: radial-gradient(1200px 400px at 85% -10%, rgba(74,168,116,.35), transparent 60%),
+                linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    padding: 4rem 0 7.5rem;
+  }
+  .hero .mark {
+    position: absolute; right: -60px; top: -40px; width: 420px; opacity: .07;
+    filter: brightness(0) invert(1); pointer-events: none;
+  }
+  header { display: flex; align-items: center; gap: 1.25rem; position: relative; }
+  header .logo { width: 84px; height: 84px; filter: brightness(0) invert(1); flex: none; }
+  .eyebrow { display: inline-block; font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+             color: #b9d8c5; margin-bottom: .35rem; }
+  header h1 { margin: 0; color: #fff; font-size: clamp(1.9rem, 4vw, 2.75rem); font-weight: 700; letter-spacing: .01em; line-height: 1.15; }
+  header h1 span { font-weight: 500; opacity: .9; }
+  .hero p.lead { margin: 1.25rem 0 0; max-width: 640px; color: #d6deeb; font-size: 1.05rem; position: relative; }
+  .facts { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: 1.75rem; position: relative; }
+  .facts span { font-size: .8rem; padding: .35rem .8rem; border-radius: 99px;
+                background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); color: #e8edf5; }
+  @media (max-width: 560px) { header { flex-direction: column; align-items: flex-start; } header .logo { width: 60px; height: 60px; } }
+
+  main.wrap { margin-top: -5rem; position: relative; padding-bottom: 3rem; }
+
+  .grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1.25rem; align-items: start; }
+  @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 1.5rem; box-shadow: var(--shadow);
+  }
+  .card h2 { margin: 0 0 .2rem; font-size: 1.05rem; font-weight: 700; display: flex; align-items: center; }
+  .card .hint, .note { color: var(--muted); font-size: .87rem; margin: 0 0 1rem; }
+  .step { display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 8px;
+          background: var(--navy); color: #fff; font-size: .8rem; font-weight: 700; margin-right: .6rem; font-family: var(--head); }
+
+  #map { height: 300px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); margin-bottom: .6rem; }
+  /* Rain heat map: switch and legend */
+  #rain_box { margin-bottom: 1.1rem; font-size: .82rem; color: var(--muted); }
+  #rain_box label { display: flex; align-items: center; gap: .5rem; margin: 0; cursor: pointer; }
+  #rain_legend { margin-top: .6rem; }
+  #rain_legend .ramp { height: 10px; border-radius: 99px; background: linear-gradient(to right, #cde2fb, #86b6ef, #3987e5, #184f95); }
+  #rain_legend .ticks { display: flex; justify-content: space-between; margin-top: .2rem; font-variant-numeric: tabular-nums; }
+  #rain_legend p { margin: .4rem 0 0; }
+
+  label { display: block; margin-bottom: 1rem; font-size: .82rem; font-weight: 600; color: #374151; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+  .row.soil-row { grid-template-columns: 1fr 1.6fr; }
+  @media (max-width: 480px) { .row, .row.soil-row { grid-template-columns: 1fr; } }
+  input[type=number], input[type=text], select {
+    display: block; width: 100%; margin-top: .35rem; padding: .62rem .8rem;
+    font: inherit; font-size: .93rem; font-weight: 400; color: var(--text);
+    background: #fcfbf8; border: 1px solid var(--line); border-radius: 10px;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  input:focus, select:focus { outline: none; border-color: var(--navy-2); box-shadow: 0 0 0 3px rgba(42,65,112,.12); }
+
+  #crops { display: flex; flex-wrap: wrap; align-items: center; gap: .35rem; margin: -.5rem 0 0; font-size: .78rem; color: var(--muted); }
+  #crops .chip { background: var(--accent-soft); color: var(--accent); padding: .15rem .6rem; border-radius: 99px; font-weight: 500; }
+
+  .slider { margin-bottom: 1.25rem; font-weight: 400; }
+  .slider .top { display: flex; justify-content: space-between; align-items: baseline; }
+  .slider b { font-size: .95rem; color: var(--navy); }
+  .slider output { font-weight: 700; color: var(--navy); background: #eef1f6; border-radius: 6px; padding: 0 .45rem;
+                   min-width: 2.2ch; text-align: center; font-size: .85rem; }
+  .slider small { display: block; color: var(--muted); font-size: .8rem; }
+  input[type=range] { width: 100%; accent-color: var(--navy); margin: .45rem 0 0; }
+
+  button#run {
+    width: 100%; padding: .95rem 1rem; margin-top: .25rem; font: inherit; font-weight: 600; font-size: 1rem;
+    color: #fff; background: linear-gradient(135deg, var(--navy), var(--navy-2)); border: 0; border-radius: 12px; cursor: pointer;
+    box-shadow: 0 6px 16px rgba(28,45,74,.25); transition: transform .12s, box-shadow .12s;
+    display: flex; align-items: center; justify-content: center; gap: .55rem;
+  }
+  button#run:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(28,45,74,.3); }
+  button#run:disabled { opacity: .7; cursor: progress; transform: none; }
+  button#run.busy::before { content: ""; width: 1rem; height: 1rem; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,.35); border-top-color: #fff; animation: spin .8s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  #status { margin: 1rem 0 0; font-size: .82rem; color: var(--muted); line-height: 1.5; }
+  #status:empty { display: none; }
+  #status.error { color: var(--warn); background: var(--warn-bg); padding: .7rem .9rem; border-radius: 10px; }
+
+  .section-head { scroll-margin-top: 84px; display: flex; align-items: end; justify-content: space-between; gap: 1rem; margin: 3rem 0 1rem; }
+  .section-head h2 { margin: 0; font-size: 1.4rem; font-weight: 700; }
+  .section-head p { margin: .2rem 0 0; color: var(--muted); font-size: .9rem; }
+
+  /* Top-pick callout */
+  #pick { display: none; align-items: center; gap: 1.25rem; margin-bottom: 1.25rem; padding: 1.25rem 1.5rem;
+          border-radius: var(--radius); color: #fff; box-shadow: var(--shadow);
+          background: linear-gradient(135deg, #2f7d4f, #3c9a64); }
+  #pick.show { display: flex; }
+  #pick .big { font-family: var(--head); font-size: 2.2rem; font-weight: 700; line-height: 1; }
+  #pick .big small { display: block; font-size: .7rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; opacity: .85; margin-top: .35rem; }
+  #pick .text { border-left: 1px solid rgba(255,255,255,.3); padding-left: 1.25rem; }
+  #pick .text div:first-child { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; opacity: .85; font-weight: 600; }
+  #pick_seq { font-family: var(--head); font-weight: 600; font-size: 1.1rem; }
+  #pick_trade { font-size: .85rem; opacity: .92; margin-top: .15rem; }
+  @media (max-width: 560px) { #pick { flex-direction: column; align-items: flex-start; } #pick .text { border: 0; padding: 0; } }
+
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { border-collapse: collapse; width: 100%; font-size: .9rem; font-variant-numeric: tabular-nums; }
+  th, td { padding: .7rem .8rem; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  tr:last-child td { border-bottom: 0; }
+  th { font-size: .7rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; background: #faf9f6; vertical-align: bottom; }
+  th small { display: block; margin-top: .1rem; font-size: .72rem; font-weight: 400; text-transform: none; letter-spacing: 0; }
+  th.num, td.num { text-align: right; white-space: nowrap; }
+  #weather td, #forecast td, #history td { padding: .4rem .8rem; }
+  .val { font-weight: 600; }
+  /* Change against the current rotation: filled chip = better, outlined chip = worse */
+  .delta { display: inline-block; min-width: 3.4em; margin-left: .45rem; padding: 0 .3rem; border: 1px solid transparent; border-radius: 6px;
+           font-size: .76rem; font-weight: 600; text-align: center; }
+  .delta.good { background: #cfe8d8; color: #1c5f38; }
+  .delta.bad { border-color: #d9a69c; color: var(--warn); }
+  .delta.same { color: var(--muted); font-weight: 400; }
+  .key { display: none; flex-wrap: wrap; align-items: center; gap: .35rem 1.2rem; margin: 0 0 .9rem; font-size: .82rem; color: var(--muted); }
+  .key.show { display: flex; }
+  .key .delta { margin: 0 .35rem 0 0; }
+  .sub { display: block; color: var(--muted); font-size: .76rem; }
+  .rank { display: inline-block; min-width: 1.5rem; color: var(--muted); font-size: .8rem; font-weight: 600; }
+  th:first-child { border-top-left-radius: 8px; } th:last-child { border-top-right-radius: 8px; }
+  table tr:hover td { background: #fbfaf7; }
+  tr.current td { background: #f4f3ef; }
+  tr.best td { background: var(--accent-soft); }
+  td .range { display: block; color: var(--muted); font-size: .76rem; }
+  .tag { display: inline-block; font-size: .66rem; font-weight: 700; padding: .12rem .5rem; border-radius: 99px; margin-right: .4rem;
+         background: #e2e0d9; color: #4b5563; vertical-align: 1px; text-transform: uppercase; letter-spacing: .04em; }
+  tr.best .tag { background: var(--accent); color: #fff; }
+  .seq { font-weight: 600; color: var(--navy); }
+  .bar { height: .5rem; border-radius: 99px; background: #eceae4; overflow: hidden; min-width: 60px; }
+  .bar div { height: 100%; border-radius: 99px; }
+  .win { display: flex; align-items: center; gap: .5rem; white-space: nowrap; }
+  .win .bar { flex: 1; }
+  .empty { color: var(--muted); font-size: .92rem; text-align: center; padding: 2.5rem 1rem; margin: 0;
+           border: 1.5px dashed var(--line); border-radius: 12px; background: #fcfbf8; }
+
+  .context { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .context .wide { grid-column: 1 / -1; }
+  @media (max-width: 860px) { .context { grid-template-columns: 1fr; } }
+
+  /* Help guide */
+  .hero .help-link { display: inline-flex; align-items: center; gap: .4rem; margin-top: 1.25rem; position: relative;
+    color: #fff; text-decoration: none; font-weight: 600; font-size: .9rem;
+    padding: .55rem 1rem; border-radius: 10px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); }
+  .hero .help-link:hover { background: rgba(255,255,255,.2); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; counter-reset: s; margin: 0; padding: 0; list-style: none; }
+  @media (max-width: 860px) { .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+  .steps li { counter-increment: s; }
+  .steps li::before { content: counter(s); display: inline-grid; place-items: center; width: 1.7rem; height: 1.7rem; border-radius: 8px;
+    background: var(--navy); color: #fff; font: 700 .8rem var(--head); margin-bottom: .6rem; }
+  .steps h3, .help h3 { margin: 0 0 .3rem; font-size: .95rem; }
+  .steps p, .help p, .help li { margin: 0; color: #4b5563; font-size: .88rem; }
+  .help .two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.25rem; }
+  @media (max-width: 860px) { .help .two { grid-template-columns: 1fr; } }
+  dl.terms { margin: .5rem 0 0; display: grid; grid-template-columns: max-content 1fr; gap: .55rem 1rem; font-size: .88rem; }
+  dl.terms dt { font-weight: 600; color: var(--navy); }
+  dl.terms dd { margin: 0; color: #4b5563; }
+  @media (max-width: 520px) { dl.terms { grid-template-columns: 1fr; } dl.terms dd { margin-bottom: .4rem; } }
+  details { border-bottom: 1px solid var(--line); padding: .75rem 0; }
+  details:last-child { border-bottom: 0; }
+  summary { cursor: pointer; font-weight: 600; color: var(--navy); font-size: .92rem; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 1.2rem; line-height: 1; color: var(--muted); }
+  details[open] summary::after { content: "–"; }
+  details p { margin-top: .5rem !important; }
+  code { background: #f1efe9; border-radius: 4px; padding: .05rem .35rem; font-size: .82rem; }
+
+  /* ---- Device support ---- */
+  .map-fallback { height: 100%; display: grid; place-items: center; text-align: center; padding: 1.5rem;
+    color: var(--muted); font-size: .9rem; background: #f4f3ef; }
+  input, select, button { touch-action: manipulation; }
+  input[type=range] { height: 28px; }   /* bigger touch target */
+  @media (max-width: 640px) {
+    .hero { padding: 2.5rem 0 6rem; }
+    .hero p.lead { font-size: 1rem; }
+    .hero .mark { width: 300px; right: -90px; }
+    .card { padding: 1.15rem; border-radius: 14px; }
+    #map { height: 240px; }
+    /* 16px text stops iPhones zooming in when a box is tapped */
+    input[type=number], input[type=text], select { font-size: 16px; padding: .7rem .8rem; }
+    button#run { padding: 1rem; }
+    .section-head { margin-top: 2.25rem; scroll-margin-top: 70px; }
+    .section-head h2 { font-size: 1.2rem; }
+    /* Ranked rotations become stacked cards on phones */
+    #results, #results tbody, #results tr, #results td { display: block; width: 100%; }
+    #results tr:first-child { display: none; }
+    #results tr { border: 1px solid var(--line); border-radius: 12px; margin-bottom: .75rem; overflow: hidden; }
+    #results td { border: 0; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 1rem; text-align: right; padding: .55rem .9rem; }
+    #results td:first-child { border-top: 0; display: block; text-align: left; padding: .8rem .9rem; }
+    #results td[data-label]::before { content: attr(data-label); color: var(--muted); font-size: .78rem; text-align: left; flex: 1; }
+    #results td .range { display: inline; margin-left: .35rem; }
+    #results .win { justify-content: flex-end; min-width: 50%; }
+    th, td { padding: .6rem .55rem; }
+  }
+  @media (hover: none) { button#run:hover { transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+  }
+  @media print {
+    nav.top, .hero .mark, .help-link, button#run, #map { display: none !important; }
+    .hero { background: none; color: var(--navy); padding: 1rem 0; }
+    header .logo { filter: none; } header h1, .hero p.lead, .facts span { color: var(--navy) !important; }
+    main.wrap { margin-top: 0; } .card { box-shadow: none; break-inside: avoid; }
+    #pick { color: #000; background: none; border: 1px solid #ccc; }
+  }
+
+  footer { background: var(--navy); color: #c3cde0; font-size: .82rem; padding: 2rem 0 max(2rem, env(safe-area-inset-bottom)); }
+  footer .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  footer .brand { color: #fff; }
+  footer .brand img { filter: brightness(0) invert(1); }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><img data-logo alt="">FARMERS <span>COMPASS</span></a>
+    <div class="links"><a href="#plan">Plan</a><a href="#ranked">Results</a><a href="#context">Field context</a><a href="#help">Help</a></div>
+  </div>
+</nav>
+
+<section class="hero">
+  <img class="mark" data-logo alt="">
+  <div class="wrap">
+    <header>
+      <img class="logo" data-logo alt="Farmers Compass logo">
+      <div>
+        <div class="eyebrow">NASA Space Apps 2026 · Field Shift</div>
+        <h1>Farmers <span>Compass</span></h1>
+      </div>
+    </header>
+    <p class="lead">Pick your field and see which crop rotations hold up best over 20 years of likely weather,
+    before you commit a season to one. Built on NASA Earth observation data.</p>
+    <a class="help-link" href="#help">? &nbsp;New here? See how to use it</a>
+    <div class="facts"><span>20-year horizon</span><span>~1,000 weather futures</span><span>NASA POWER · Daymet · MODIS · GEOS</span></div>
+  </div>
+</section>
+
+<main class="wrap">
+<div class="grid" id="plan">
+  <section class="card">
+    <h2><span class="step">1</span>Your field</h2>
+    <p class="hint">Click the map to pick your field. On a phone, tap to place the pin and use two fingers to move the map.</p>
+    <div id="map"></div>
+    <div id="rain_box">
+      <label><input id="rain_toggle" type="checkbox"> Show average May to September rain across the province (NASA)</label>
+      <div id="rain_legend" hidden>
+        <div class="ramp"></div>
+        <div class="ticks"><span id="rain_lo"></span><span id="rain_mid"></span><span id="rain_hi"></span></div>
+        <p><b id="rain_pin"></b> <span id="rain_hover"></span></p>
+        <p id="rain_note"></p>
+      </div>
+    </div>
+    <div class="row">
+      <label>Latitude <input id="lat" type="number" step="0.01" min="-90" max="90" value="45.08" enterkeyhint="next"></label>
+      <label>Longitude <input id="lon" type="number" step="0.01" min="-180" max="180" value="-64.5" enterkeyhint="next"></label>
+    </div>
+    <div class="row soil-row">
+      <label>Soil texture <select id="soil"></select></label>
+      <label>Weather to test against
+        <select id="climate">
+          <option value="recent">Recent climate (NASA record, 1995–2024)</option>
+          <option value="2050">Around 2050 (NASA climate projections, 2041–2060)</option>
+        </select>
+      </label>
+    </div>
+    <label>Current rotation (comma separated) <input id="current" type="text" value="corn, corn, barley" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="done"></label>
+    <p id="crops"></p>
+  </section>
+
+  <section class="card">
+    <h2><span class="step">2</span>What matters most to you?</h2>
+    <p class="hint">Slide from 0 (doesn't matter) to 10 (matters most).</p>
+    <label class="slider"><span class="top"><b>Soil health</b><output for="p_soil"></output></span>
+      <small>Soil carbon gained or lost over 20 years</small>
+      <input id="p_soil" type="range" min="0" max="10" value="4"></label>
+    <label class="slider"><span class="top"><b>Water use</b><output for="p_water"></output></span>
+      <small>Water the crops need each year (less is better)</small>
+      <input id="p_water" type="range" min="0" max="10" value="2"></label>
+    <label class="slider"><span class="top"><b>Yield</b><output for="p_yield"></output></span>
+      <small>Average production per year</small>
+      <input id="p_yield" type="range" min="0" max="10" value="3"></label>
+    <label class="slider"><span class="top"><b>Risk</b><output for="p_risk"></output></span>
+      <small>Production in the worst of the 20 years</small>
+      <input id="p_risk" type="range" min="0" max="10" value="1"></label>
+
+    <button id="run">Simulate</button>
+    <p id="status" role="status" aria-live="polite"></p>
+  </section>
+</div>
+
+<div class="section-head" id="ranked">
+  <div><h2>Ranked rotations</h2><p>Ordered by your priorities, best first.</p></div>
+</div>
+<div id="pick">
+  <div class="big"><span id="pick_pct"></span><small>of weather futures</small></div>
+  <div class="text"><div id="pick_label">Top pick beats your current rotation</div><div id="pick_seq"></div><div id="pick_trade"></div></div>
+</div>
+<section class="card">
+  <p class="key" id="results_key">
+    <span><span class="delta good">+1.2</span>better than your rotation</span>
+    <span><span class="delta bad">−1.2</span>worse than your rotation</span>
+    <span>Small grey numbers: the range in 8 of 10 weather futures</span>
+  </p>
+  <div class="table-wrap"><table id="results"></table></div>
+  <p class="note" id="results_note" hidden style="margin:1rem 0 0"><b>Why is "Beats yours in" so often 100% or 0%?</b>
+    Every rotation faces the same 1,000 weather futures, and each future is 20 years long, so wet and dry years even out.
+    A rotation that fits your priorities better on average ends up ahead in almost every future.
+    The chips show what you would gain and give up.</p>
+  <p class="empty" id="results_empty">Set up your field and priorities, then press <b>Simulate</b> to see your options ranked.</p>
+</section>
+
+<div class="section-head" id="context">
+  <div><h2>Your field in context</h2><p>Real weather and satellite records for the spot you picked. The forecast and greenness are for context and do not change the ranking.</p></div>
+</div>
+<div class="context">
+  <section class="card wide">
+    <h2>Your field's growing seasons (May to September)</h2>
+    <p class="note" id="weather_note">Run a simulation to see the weather record the futures are built from.</p>
+    <div class="table-wrap"><table id="weather"></table></div>
+  </section>
+  <section class="card">
+    <h2>Next 10 days at your field</h2>
+    <p class="note" id="forecast_note">Run a simulation to load the NASA forecast.</p>
+    <div class="table-wrap"><table id="forecast"></table></div>
+  </section>
+  <section class="card">
+    <h2>How green this spot has been each summer</h2>
+    <p class="note" id="history_note">Run a simulation to load NASA satellite history for the field.</p>
+    <div class="table-wrap"><table id="history"></table></div>
+  </section>
+</div>
+<div class="section-head" id="help">
+  <div><h2>How to use Farmers Compass</h2><p>A quick guide to planning and reading your results.</p></div>
+</div>
+<section class="card help">
+  <ol class="steps">
+    <li><h3>Pick your field</h3><p>Click your field on the map, or type its latitude and longitude. Then choose the soil texture closest to yours (loam if you're unsure).</p></li>
+    <li><h3>Enter what you grow now</h3><p>Type your current rotation in order, separated by commas, e.g. <code>corn, corn, barley</code>. Use the crop names shown under the box.</p></li>
+    <li><h3>Choose the weather</h3><p><b>Recent climate</b> tests against real seasons from 1995–2024. <b>Around 2050</b> shifts them using NASA climate projections.</p></li>
+    <li><h3>Set priorities and simulate</h3><p>Move the sliders toward what matters most to you, then press <b>Simulate</b>. Results usually take a few seconds.</p></li>
+  </ol>
+
+  <div class="two">
+    <div>
+      <h3>Reading the results</h3>
+      <dl class="terms">
+        <dt>Score</dt><dd>How well the rotation fits your priorities. Higher is better. Rotations are listed best first.</dd>
+        <dt>Beats yours in</dt><dd>The share of weather futures in which this rotation scores higher than what you grow now. It is often 100% or 0%, because over 20 years the weather evens out.</dd>
+        <dt>Chips</dt><dd>The change against your current rotation. A filled green chip is better, an outlined red chip is worse.</dd>
+        <dt>Small grey range</dt><dd>The 10th to 90th percentile: in 8 of 10 weather futures the result falls in this range. The big number is the average.</dd>
+        <dt>Soil carbon</dt><dd>Carbon gained in the soil over 20 years (t C/ha), compared with growing annual crops only.</dd>
+        <dt>Water use</dt><dd>Water the crops need each year, in mm. Less is better.</dd>
+        <dt>Yield index</dt><dd>Average production per year, relative between crops.</dd>
+        <dt>+ cover crop</dt><dd>A winter cover crop is planted after each annual crop in the rotation.</dd>
+      </dl>
+    </div>
+    <div>
+      <h3>Common questions</h3>
+      <details><summary>Where does the data come from?</summary>
+        <p>Past weather from NASA POWER and Daymet, 2050 projections from NASA NEX-GDDP climate models, summer greenness from NASA MODIS satellites, and the 10-day forecast from NASA GEOS.</p></details>
+      <details><summary>What is a "weather future"?</summary>
+        <p>A possible 20-year sequence of growing seasons, made by reshuffling real past years at your field. Testing about 1,000 of them shows how each rotation holds up in good and bad runs of weather.</p></details>
+      <details><summary>I got an "unknown crops" error.</summary>
+        <p>Each crop in your current rotation must match one of the crop names listed under the box exactly, separated by commas.</p></details>
+      <details><summary>Some tables say no data is saved for my location.</summary>
+        <p>Greenness history and 2050 projections are downloaded ahead of time for each location. The message shows the command to fetch them; ask whoever runs the site to do it.</p></details>
+      <details><summary>Do the forecast and greenness tables change the ranking?</summary>
+        <p>No. They are shown for context about your field. Only the weather record, soil, crops and your priorities feed the ranking.</p></details>
+      <details><summary>Should I change my rotation based on this alone?</summary>
+        <p>Treat it as a planning aid. It's a simulation, so talk the top options through with an agronomist or Perennia before committing a season.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="brand"><img data-logo alt="">FARMERS <span>COMPASS</span></span>
+    <span>NASA Space Apps Challenge 2026 · Halifax · Team The Golden Boot</span>
+  </div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+// The logo is embedded once (as the tab icon) and reused for every logo image.
+for (const img of document.querySelectorAll('img[data-logo]')) img.src = document.querySelector('link[rel=icon]').href;
+
+// Map with free OpenStreetMap tiles. Clicking it fills in latitude and longitude.
+// If the map can't start (no WebGL, or the map library didn't load), the rest of the page still works.
+let map = null, marker = null;
+let rain = null;   // the rain heat map's data, once it has been loaded
+const touch = !!(window.matchMedia && matchMedia('(pointer: coarse)').matches);
+function mapFallback(why) {
+  $('map').innerHTML = '<div class="map-fallback">The map isn\'t available on this device' + (why ? ' (' + why + ')' : '') +
+    '.<br>Type your field\'s latitude and longitude below instead.</div>';
+}
+try {
+  if (!window.maplibregl) throw new Error('map library did not load');
+  if (maplibregl.supported && !maplibregl.supported()) throw new Error('WebGL is not supported');
+map = new maplibregl.Map({
+  container: 'map',
+  center: [+$('lon').value, +$('lat').value],
+  zoom: 9,
+  style: {
+    version: 8,
+    sources: { osm: { type: 'raster', tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'], tileSize: 256, attribution: '© OpenStreetMap contributors' } },
+    layers: [{ id: 'osm', type: 'raster', source: 'osm' }],
+  },
+  cooperativeGestures: touch,   // on phones, one finger scrolls the page; two fingers move the map
+});
+map.addControl(new maplibregl.NavigationControl({ showCompass: false }));
+marker = new maplibregl.Marker({ color: '#1c2d4a' }).setLngLat([+$('lon').value, +$('lat').value]).addTo(map);
+map.on('click', e => {
+  $('lat').value = e.lngLat.lat.toFixed(2);
+  $('lon').value = e.lngLat.lng.toFixed(2);
+  marker.setLngLat(e.lngLat);
+  pinRain();
+});
+map.on('error', e => console.warn('Map:', e && e.error));
+window.addEventListener('resize', () => map.resize());
+} catch (e) { mapFallback(e.message); }
+// Typing a latitude or longitude moves the marker too.
+for (const id of ['lat', 'lon']) $(id).onchange = () => {
+  const spot = [+$('lon').value, +$('lat').value];
+  if (!map || !validSpot(spot[1], spot[0])) return;
+  marker.setLngLat(spot);
+  map.setCenter(spot);
+  pinRain();
+};
+
+// Heat map: average May to September rain on NASA POWER's grid of about 50 km squares. Context only.
+const RAMP = ['#cde2fb', '#86b6ef', '#3987e5', '#184f95'];   // light = less rain, dark = more
+const mapLoaded = map && new Promise(done => map.once('load', done));   // layers can only be added after this
+async function loadRainMap() {
+  const res = await fetch('/rain-map');
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.detail);
+  await mapLoaded;
+  const step = (data.max - data.min) / (RAMP.length - 1);
+  map.addSource('rain', { type: 'geojson', data });
+  map.addLayer({ id: 'rain', type: 'fill', source: 'rain', paint: {
+    'fill-color': ['interpolate', ['linear'], ['get', 'rain_mm'], ...RAMP.flatMap((c, i) => [data.min + i * step, c])],
+    'fill-opacity': 0.45, 'fill-outline-color': '#ffffff' } });
+  rain = data;
+  $('rain_lo').textContent = rain.min + ' mm';
+  $('rain_mid').textContent = Math.round((rain.min + rain.max) / 2) + ' mm';
+  $('rain_hi').textContent = rain.max + ' mm';
+  $('rain_note').textContent = `Source: ${rain.source}. The sea is coloured too. For context only.`;
+  map.on('mousemove', 'rain', e => $('rain_hover').textContent = `Under the pointer: ${e.features[0].properties.rain_mm} mm.`);
+  map.on('mouseleave', 'rain', () => $('rain_hover').textContent = '');
+}
+// Rain in the square that holds the pin.
+function pinRain() {
+  if (!rain) return;
+  const lat = +$('lat').value, lon = +$('lon').value;
+  const cell = rain.features.find(f => {
+    const [sw, , ne] = f.geometry.coordinates[0];
+    return lon >= sw[0] && lon < ne[0] && lat >= sw[1] && lat < ne[1];
+  });
+  $('rain_pin').textContent = cell ? `At your pin: ${cell.properties.rain_mm} mm.` : 'Your pin is outside the mapped area.';
+}
+if (!map) $('rain_box').hidden = true;
+$('rain_toggle').onchange = async e => {
+  const on = e.target.checked;
+  try {
+    if (on && !rain) await loadRainMap();
+    map.setLayoutProperty('rain', 'visibility', on ? 'visible' : 'none');
+    $('rain_legend').hidden = !on;
+    pinRain();
+    if (on) map.fitBounds([[-66.5, 43.3], [-59.7, 47.1]], { padding: 10, animate: false });   // Nova Scotia
+    else map.jumpTo({ center: marker.getLngLat(), zoom: 9 });
+  } catch (err) {
+    e.target.checked = false;
+    $('rain_legend').hidden = false;
+    $('rain_note').textContent = 'Could not load the rain map: ' + err.message;
+  }
+};
+function validSpot(lat, lon) {
+  return $('lat').value !== '' && $('lon').value !== '' && isFinite(lat) && isFinite(lon) &&
+    lat >= -90 && lat <= 90 && lon >= -180 && lon <= 180;
+}
+
+// Show each slider's current value next to its name.
+for (const id of ['p_soil', 'p_water', 'p_yield', 'p_risk']) {
+  const out = document.querySelector(`output[for=${id}]`);
+  const show = () => out.textContent = $(id).value;
+  $(id).oninput = show; show();
+}
+
+const SOIL_FALLBACK = ['sand', 'sandy loam', 'loam', 'clay loam', 'clay'];
+function fillSoils(list) { $('soil').innerHTML = list.map(s => `<option${s === 'loam' ? ' selected' : ''}>${s}</option>`).join(''); }
+fillSoils(SOIL_FALLBACK);
+fetch('/options').then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(o => {
+  fillSoils(o.soils);
+  $('crops').innerHTML = 'Crops: ' + Object.keys(o.crops).map(c => `<span class="chip">${c}</span>`).join('');
+}).catch(() => { $('crops').textContent = 'Could not load the crop list. Check your connection and refresh the page.'; });
+
+// The rotation with repeated years folded together, e.g. "alfalfa ×3 → corn".
+function seqText(r) {
+  const runs = [];
+  for (const crop of r.sequence) {
+    if (runs.length && runs[runs.length - 1][0] === crop) runs[runs.length - 1][1]++;
+    else runs.push([crop, 1]);
+  }
+  return runs.map(([crop, n]) => n > 1 ? `${crop} ×${n}` : crop).join(' → ');
+}
+
+// Change of one result against the current rotation, as signed text. lessIsBetter is true for water use.
+function change(m, cur, digits, lessIsBetter) {
+  const d = +(m.mean - cur.mean).toFixed(digits);
+  if (d === 0) return { text: 'same', cls: 'same' };
+  return { text: (d > 0 ? '+' : '−') + Math.abs(d).toFixed(digits), cls: (d < 0) === lessIsBetter ? 'good' : 'bad' };
+}
+
+// One number cell: the average, a chip with the change against the current rotation, and the range below.
+function numCell(label, m, cur, digits, lessIsBetter) {
+  const f = v => v.toFixed(digits);
+  const c = cur ? change(m, cur, digits, lessIsBetter) : { text: '', cls: '' };
+  const range = f(m.p10) === f(m.p90) ? '' : `<span class="range">${f(m.p10)} to ${f(m.p90)}</span>`;
+  return `<td class="num" data-label="${label}"><span><span class="val">${f(m.mean)}</span><span class="delta ${c.cls}">${c.text}</span>${range}</span></td>`;
+}
+
+// One row of the ranking. cur is the current rotation's results; it is left out for the current rotation's own row.
+function rowHtml(r, cur, rank) {
+  const pct = Math.round(r.win_rate * 100);
+  const win = !cur ? '–' : `<span class="win"><span class="bar"><div style="width:${pct}%;background:var(--accent)"></div></span>${pct}%</span>`;
+  const best = cur && rank === 1 && r.score > cur.score;   // no "Best" tag if the current rotation scores higher
+  const tag = !cur ? '<span class="tag">Yours</span>' : best ? '<span class="tag">Best</span>' : `<span class="rank">${rank}</span>`;
+  return `<tr class="${!cur ? 'current' : best ? 'best' : ''}"><td>${tag}<span class="seq">${seqText(r)}</span><span class="sub">${r.sequence.length}-year cycle${r.cover_crop ? ', with a winter cover crop' : ''}</span></td>` +
+    `<td class="num" data-label="Score"><span class="val">${r.score.toFixed(2)}</span></td><td data-label="Beats yours in">${win}</td>` +
+    numCell('Soil carbon, t C/ha', r.soil_carbon_change, cur && cur.soil_carbon_change, 1, false) +
+    numCell('Water use, mm/yr', r.water_use, cur && cur.water_use, 0, true) +
+    numCell('Yield index', r.yield_index, cur && cur.yield_index, 2, false) + '</tr>';
+}
+
+const RESULTS_HEAD = '<tr><th>Rotation</th><th class="num">Score<small>higher is better</small></th>' +
+  '<th>Beats yours in<small>share of futures</small></th>' +
+  '<th class="num">Soil carbon<small>t C/ha in 20 years</small></th>' +
+  '<th class="num">Water use<small>mm per year</small></th>' +
+  '<th class="num">Yield<small>index, corn = 1</small></th></tr>';
+
+const barCell = (value, max, color) =>
+  `<td style="width:40%"><div class="bar"><div style="width:${value / max * 100}%;background:${color}"></div></div></td>`;
+
+// A number cell shaded by where its value sits between the column's lowest and highest: darker means bigger. rgb is "r,g,b".
+function heatCell(value, all, rgb, text = value) {
+  const lo = Math.min(...all), hi = Math.max(...all);
+  const share = hi > lo ? (value - lo) / (hi - lo) : 0;
+  return `<td class="num" style="background:rgba(${rgb},${(0.03 + 0.55 * share).toFixed(2)})">${text}</td>`;
+}
+
+// Summer greenness (NDVI) of the field per year, from NASA MODIS. Context only; not used in the ranking.
+async function loadHistory(lat, lon) {
+  try {
+    const res = await fetch(`/field-history?lat=${lat}&lon=${lon}`);
+    const h = await res.json();
+    $('history').innerHTML = '';
+    if (!res.ok) { $('history_note').textContent = h.detail; return; }
+    $('history_note').textContent = 'Greenness runs from 0 for bare soil to 1 for a dense green crop. Source: NASA MODIS satellite, 250 m, mid June to late August.';
+    $('history').innerHTML = '<tr><th>Year</th><th class="num">Greenness<small>NDVI, 0 to 1</small></th><th></th></tr>' + h.years.map((y, i) => h.ndvi[i] == null ? '' :
+      `<tr><td>${y}</td><td class="num">${h.ndvi[i].toFixed(2)}</td>${barCell(h.ndvi[i], 1, 'var(--green)')}</tr>`).join('');
+  } catch (e) { $('history_note').textContent = 'Could not load field history: ' + e.message; }
+}
+
+// Rain, hot days and longest dry spell for each real year in the NASA record.
+function showWeather(w, source) {
+  const most = Math.max(...w.rain_mm), least = Math.min(...w.rain_mm);
+  const HEAT = '235,104,52';   // orange: a darker cell means more heat or a longer dry spell
+  $('weather_note').textContent = `Each row is one real growing season. The weather futures are built by shuffling these years. ` +
+    `Driest: ${w.years[w.rain_mm.indexOf(least)]} (${least} mm). Wettest: ${w.years[w.rain_mm.indexOf(most)]} (${most} mm). Source: ${source}.`;
+  $('weather').innerHTML = `<tr><th>Year</th><th class="num">Rain<small>mm</small></th><th></th>` +
+    `<th class="num">Hot days<small>above ${w.hot_day_c} °C</small></th><th class="num">Longest dry spell<small>days</small></th></tr>` +
+    w.years.map((y, i) => `<tr><td>${y}</td><td class="num">${w.rain_mm[i]}</td>` + barCell(w.rain_mm[i], most, 'var(--rain)') +
+      heatCell(w.hot_days[i], w.hot_days, HEAT) + heatCell(w.dry_spell_days[i], w.dry_spell_days, HEAT) + '</tr>').join('');
+}
+
+// Ten-day forecast from NASA GEOS. Context only; not used in the ranking.
+async function loadForecast(lat, lon) {
+  $('forecast').innerHTML = '';
+  $('forecast_note').textContent = 'Loading the NASA forecast…';
+  try {
+    const res = await fetch(`/forecast?lat=${lat}&lon=${lon}`);
+    const f = await res.json();
+    if (!res.ok) { $('forecast_note').textContent = f.detail; return; }
+    const day = d => new Date(d + 'T00:00:00Z').toLocaleDateString('en-CA', { weekday: 'short', month: 'short', day: 'numeric', timeZone: 'UTC' });
+    const issued = day(`${f.run.slice(0, 4)}-${f.run.slice(4, 6)}-${f.run.slice(6, 8)}`);   // f.run looks like "20261114_00"
+    $('forecast_note').textContent = `Source: NASA GEOS forecast, about 25 km grid, issued ${issued}.`;
+    $('forecast').innerHTML = '<tr><th>Day</th><th class="num">High<small>°C</small></th><th class="num">Low<small>°C</small></th><th class="num">Rain<small>mm</small></th></tr>' +
+      f.days.map((d, i) => `<tr><td>${day(d)}</td><td class="num">${f.tmax_c[i].toFixed(1)}</td><td class="num">${f.tmin_c[i].toFixed(1)}</td>` +
+        heatCell(f.rain_mm[i], f.rain_mm, '74,134,184', f.rain_mm[i].toFixed(1)) + '</tr>').join('');
+  } catch (e) { $('forecast_note').textContent = 'Could not load the forecast: ' + e.message; }
+}
+
+function showError(msg) { $('status').className = 'error'; $('status').textContent = msg; }
+
+$('run').onclick = async () => {
+  const btn = $('run');
+  if (!validSpot(+$('lat').value, +$('lon').value))
+    return showError('Please enter a valid latitude (-90 to 90) and longitude (-180 to 180), or tap your field on the map.');
+  if (!$('current').value.trim())
+    return showError('Please enter your current rotation, e.g. corn, corn, barley.');
+  if (document.activeElement && document.activeElement.blur) document.activeElement.blur();   // closes the phone keyboard
+  btn.disabled = true; btn.classList.add('busy'); btn.textContent = 'Simulating…';
+  $('status').className = '';
+  $('status').textContent = 'Running thousands of weather futures for your field…';
+  const body = {
+    lat: +$('lat').value, lon: +$('lon').value, soil: $('soil').value,
+    current_rotation: $('current').value.split(',').map(s => s.trim()).filter(Boolean),
+    priorities: { soil: +$('p_soil').value, water: +$('p_water').value, yield: +$('p_yield').value, risk: +$('p_risk').value },
+    climate: $('climate').value,
+  };
+  loadHistory(body.lat, body.lon);
+  loadForecast(body.lat, body.lon);
+  try {
+    const res = await fetch('/simulate', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+    const data = await res.json().catch(() => ({ detail: 'the server replied with status ' + res.status }));
+    if (!res.ok) return showError('Error: ' + (typeof data.detail === 'string' ? data.detail : JSON.stringify(data.detail)));
+    showWeather(data.weather_history, data.weather_source);
+    const c = data.climate_change;
+    const rainChange = Math.round((c ? c.rain_ratio - 1 : 0) * 1000) / 10;   // percent
+    $('status').textContent = `${data.n_rotations} rotations × ${data.n_scenarios.toLocaleString('en-CA')} weather futures on the ${data.device.toUpperCase()} in ${Math.round(data.runtime_ms)} ms. Weather: ${data.weather_source}.` +
+      (c ? ` 2050 climate: ${c.dT > 0 ? '+' : ''}${c.dT} °C and ${Math.abs(rainChange)}% ${rainChange < 0 ? 'less' : 'more'} rain, the average of ${Object.keys(c.models).length} NASA climate models.` : '');
+    $('results_empty').style.display = 'none';
+    const cur = data.current;
+    $('results').innerHTML = RESULTS_HEAD + rowHtml(cur) + data.rotations.map((r, i) => rowHtml(r, cur, i + 1)).join('');
+    $('results_key').classList.add('show');
+    $('results_note').hidden = false;
+    const top = data.rotations[0];
+    if (top) {
+      $('pick_pct').textContent = Math.round(top.win_rate * 100) + '%';
+      $('pick_label').textContent = top.score > cur.score ? 'Top pick beats your current rotation'
+        : 'Your current rotation already scores highest. The closest alternative beats it';
+      $('pick_seq').textContent = seqText(top) + (top.cover_crop ? ' + cover crop' : '');
+      const part = (name, c, unit) => c.cls === 'same' ? `${name} the same` : `${name} ${c.text}${unit}`;
+      $('pick_trade').textContent = 'Against yours: ' + [
+        part('soil carbon', change(top.soil_carbon_change, cur.soil_carbon_change, 1, false), ' t C/ha'),
+        part('water use', change(top.water_use, cur.water_use, 0, true), ' mm a year'),
+        part('yield index', change(top.yield_index, cur.yield_index, 2, false), ''),
+      ].join(', ') + '.';
+      $('pick').classList.add('show');
+    }
+    $('ranked').scrollIntoView({ behavior: 'smooth' });
+  } catch (e) {
+    showError('Could not reach the simulator. Check your connection and try again. (' + e.message + ')');
+  } finally {
+    btn.disabled = false; btn.classList.remove('busy'); btn.textContent = 'Simulate';
+  }
+};
+</script>
+</body>
+</html>

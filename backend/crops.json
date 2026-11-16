@@ -1,0 +1,97 @@
+{
+  "_units": {
+    "kc": "crop coefficient: seasonal water demand = kc x reference evapotranspiration (no units)",
+    "ky": "yield response factor: fractional yield loss per fractional water shortfall (no units)",
+    "root_depth_m": "depth of soil the crop can draw water from, m",
+    "n_effect": "fractional change in the NEXT crop's yield (0.125 = +12.5%)",
+    "carbon_effect": "t C / ha / year added to the soil, relative to annual cropping",
+    "base_yield": "tonnes of feed per hectare in an average Nova Scotia year, relative to corn silage (= 1.0)",
+    "repeat_penalty": "fraction of yield lost when the crop follows itself (pest and disease carry-over)"
+  },
+  "_references": {
+    "FAO-56": "Allen, Pereira, Raes, Smith (1998). Crop evapotranspiration. FAO Irrigation and Drainage Paper 56. https://www.fao.org/4/x0490e/x0490e00.htm",
+    "OMAFRA-811": "Ontario Ministry of Agriculture, Food and Rural Affairs (2022). Agronomy Guide for Field Crops, Publication 811, Chapter 3 Forages. https://ontario.ca/files/2022-10/omafra-agronomy-guide-for-field-crops-chapter-3-en-2022-10-13.pdf",
+    "OMAFRA-811-8": "Ontario Ministry of Agriculture, Food and Rural Affairs (2022). Agronomy Guide for Field Crops, Publication 811, Chapter 8 Managing for Healthy Soils, Tables 8-1 and 8-2 (D. Hooker, University of Guelph, Ridgetown Campus). https://www.ontario.ca/files/2022-10/omafra-agronomy-guide-for-field-crops-chapter-8-en-2022-10-13.pdf",
+    "VandenBygaart-2010": "VandenBygaart et al. (2010). Soil organic carbon stocks on long-term agroecosystem experiments in Canada. Can. J. Soil Sci. 90: 543-550. doi:10.4141/CJSS10028",
+    "Poeplau-Don-2015": "Poeplau and Don (2015). Carbon sequestration in agricultural soils via cultivation of cover crops: a meta-analysis. Agriculture, Ecosystems and Environment 200: 33-41.",
+    "StatCan": "Statistics Canada. Table 32-10-0359-01, Estimated areas, yield, production of principal field crops. Nova Scotia, average yield (kg/ha), mean of 2015-2024. Fetched 2026-11-14.",
+    "Perennia-Corn": "Perennia (2026). Corn Production Guide. https://www.perennia.ca/wp-content/uploads/2018/03/Corn-Production-GuideV2.pdf"
+  },
+  "_base_yield_method": "Statistics Canada Nova Scotia yields, mean of 2015-2024: corn for silage 34,628 kg/ha fresh, tame hay 4,777, barley 3,168, soybeans 3,119. Corn silage is converted to dry matter at 32.5% (Perennia-Corn: harvested at 30 to 35% whole plant dry matter), giving 11,254 kg/ha. Hay and grain are used as reported (roughly air dry). Each crop is divided by the corn silage figure.",
+  "crops": {
+    "corn": {
+      "name": "Corn silage", "perennial": false,
+      "kc": 1.20, "ky": 1.25, "root_depth_m": 1.0, "n_effect": 0.0, "carbon_effect": 0.0, "base_yield": 1.0, "repeat_penalty": 0.075,
+      "source": {
+        "kc": "FAO-56 Table 12, Maize field (grain), Kc mid. Silage maize is not listed, so grain maize is used.",
+        "ky": "FAO-56 Table 24, Maize.",
+        "root_depth_m": "FAO-56 Table 22, Maize field: 1.0-1.7 m. Lower bound used.",
+        "n_effect": "No sourced value. Assumed 0 (no effect on the next crop).",
+        "carbon_effect": "VandenBygaart-2010: annual cropping is the baseline, so 0.",
+        "base_yield": "StatCan corn for silage, 34,628 kg/ha fresh x 32.5% dry matter (Perennia-Corn) = 11,254 kg/ha. This is the reference, so 1.0.",
+        "repeat_penalty": "OMAFRA-811-8 Table 8-2 (Ridgetown, Ontario, 2010-2014, across tillage): continuous corn 8.91 t/ha against 9.63 t/ha for corn after soybean, 7.5% lower. Measured for grain corn; applied here to silage corn."
+      }
+    },
+    "alfalfa": {
+      "name": "Alfalfa", "perennial": true,
+      "kc": 0.95, "ky": 1.1, "root_depth_m": 1.0, "n_effect": 0.125, "carbon_effect": 0.6, "base_yield": 0.42, "repeat_penalty": 0.0,
+      "source": {
+        "kc": "FAO-56 Table 12, Alfalfa hay, averaged cutting effects, Kc mid.",
+        "ky": "FAO-56 Table 24, Alfalfa.",
+        "root_depth_m": "FAO-56 Table 22, Alfalfa hay: 1.0-2.0 m. Lower bound used.",
+        "n_effect": "OMAFRA-811 Chapter 3: 10%-15% yield benefit to corn following alfalfa. Midpoint used. Measured for corn; applied here to any annual crop that follows.",
+        "carbon_effect": "VandenBygaart-2010: perennial cropping stored 0.6 Mg C/ha/yr more than annual cropping (0-30 cm, seven Canadian long-term sites). Value taken from the abstract.",
+        "base_yield": "StatCan tame hay, 4,777 kg/ha / 11,254 = 0.42. StatCan does not split hay into alfalfa and grass, so both use this value.",
+        "repeat_penalty": "Perennial: staying in place is how it is grown, so no penalty."
+      }
+    },
+    "grass": {
+      "name": "Grass forage", "perennial": true,
+      "kc": 1.05, "ky": 1.1, "root_depth_m": 0.5, "n_effect": 0.0, "carbon_effect": 0.6, "base_yield": 0.42, "repeat_penalty": 0.0,
+      "source": {
+        "kc": "FAO-56 Table 12, Rye grass hay, averaged cutting effects, Kc mid. Used as a stand-in for mixed grass forage.",
+        "ky": "UNVERIFIED. FAO-56 Table 24 has no grass entry; the alfalfa value is borrowed.",
+        "root_depth_m": "FAO-56 Table 22, Grazing pasture: 0.5-1.5 m. Lower bound used.",
+        "n_effect": "No sourced value. Assumed 0 (no effect on the next crop).",
+        "carbon_effect": "VandenBygaart-2010: perennial cropping stored 0.6 Mg C/ha/yr more than annual cropping. Value taken from the abstract.",
+        "base_yield": "StatCan tame hay, 4,777 kg/ha / 11,254 = 0.42. StatCan does not split hay into alfalfa and grass, so both use this value.",
+        "repeat_penalty": "Perennial: staying in place is how it is grown, so no penalty."
+      }
+    },
+    "barley": {
+      "name": "Barley", "perennial": false,
+      "kc": 1.15, "ky": 1.15, "root_depth_m": 1.0, "n_effect": 0.0, "carbon_effect": 0.0, "base_yield": 0.28, "repeat_penalty": 0.0,
+      "source": {
+        "kc": "FAO-56 Table 12, Barley, Kc mid.",
+        "ky": "FAO-56 Table 24, Spring wheat. Barley is not listed, so spring wheat is used.",
+        "root_depth_m": "FAO-56 Table 22, Barley: 1.0-1.5 m. Lower bound used.",
+        "n_effect": "No sourced value. Assumed 0 (no effect on the next crop).",
+        "carbon_effect": "VandenBygaart-2010: annual cropping is the baseline, so 0.",
+        "base_yield": "StatCan barley, 3,168 kg/ha / 11,254 = 0.28. Grain only; straw is not counted.",
+        "repeat_penalty": "No sourced value. Assumed 0."
+      }
+    },
+    "soybean": {
+      "name": "Soybean", "perennial": false,
+      "kc": 1.15, "ky": 0.85, "root_depth_m": 0.6, "n_effect": 0.0, "carbon_effect": 0.0, "base_yield": 0.28, "repeat_penalty": 0.0,
+      "source": {
+        "kc": "FAO-56 Table 12, Soybeans, Kc mid.",
+        "ky": "FAO-56 Table 24, Soybean.",
+        "root_depth_m": "FAO-56 Table 22, Soybeans: 0.6-1.3 m. Lower bound used.",
+        "n_effect": "No sourced value. Assumed 0 (no effect on the next crop).",
+        "carbon_effect": "VandenBygaart-2010: annual cropping is the baseline, so 0.",
+        "base_yield": "StatCan soybeans, 3,119 kg/ha / 11,254 = 0.28. Grain only.",
+        "repeat_penalty": "OMAFRA-811-8 Table 8-1: continuous soybean 3.90 t/ha against 4.01 t/ha in a corn-soybean rotation. The table notes differences under 0.27 t/ha are not statistically significant, so 0 is used."
+      }
+    }
+  },
+  "cover_crop": {
+    "name": "Winter cover crop (planted after each annual crop)",
+    "n_effect": 0.0,
+    "carbon_effect": 0.32,
+    "source": {
+      "n_effect": "No sourced value. Assumed 0 (no effect on the next crop).",
+      "carbon_effect": "Poeplau-Don-2015: cover crops add about 0.32 Mg C/ha/yr (global meta-analysis). Value confirmed from a co-author's summary, not the paper itself."
+    }
+  }
+}
